@@ -1,0 +1,10 @@
+{
+    "background_color": "rgb(133, 227, 255)",
+    "description": "Stopwatch",
+    "display": "fullscreen",
+
+    "name": "Stopwatch",
+    "short_name": "Stopwatch",
+    "start_url": "http://localhost:8080/node-course/index.html",
+    "orientation": "landscape"
+  }

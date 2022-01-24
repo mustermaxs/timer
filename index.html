@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="./device.js"></script>
+    <link type="text/css" rel="stylesheet" href="./css/pwabanner.css">
+    <link type="text/css" rel="stylesheet" href="./css/main.css">
+    <link rel="manifest" href="./manifest.webmanifest">
+
+</head>
+<script>document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
+<!-- style=" margin-bottom: 3rem; margin-top: 0rem; display: block; padding: 5px; border: 2px solid white; border-radius: 100%; min-height: 1.9rem; min-width: 1.9rem;text-align: center;" -->
+
+<body>
+    <div id="pwaInstallBanner">
+        <button type="button" id="closeX">&#x2715;</button>
+        <span>Install for offline usage</span>
+        <button type="button" id="install">Install App</button>
+    </div>
+    <div id="fader"></div>
+    <audio id="roundCompleted" preload="true" src="./mixkit-select-click-1109.wav"></audio>
+    <svg id="dragger" width="300" height="50" style="position:absolute;  top:30%; opacity: 0; transition: opacity 50ms ease">
+        <circle id="dragcircle" r="20" cx="25" cy="25" stroke-linecap="round" stroke="white" stroke-width="2" fill="none" style="opacity: 0; transition: opacity 1500ms;"></circle>
+        <circle id="dot" r="1" cx="25" cy="25" stroke="white" stroke-width="5" fill="white" style="opacity: 0; transition: opacity 50ms;"></circle>
+    </svg>
+    <div id="wrapper">
+        <div class="circleIF" data-id="multiplier" style="display: block; position: relative; left: 75px;">
+            <svg width="200" height="100" style="position:absolute">
+                <circle data-id="multiplier" id="dragcircle" r=24 cx="25" cy="25" stroke="white" stroke-width="2" fill="none" style="opacity: 0;"></circle>
+                <rect data-id="multiplier" id="rail" height="0.5" x="49" y="25" width="0" fill="white" stroke="white" stroke-width="2" stroke-linecap="round"></rect>
+               
+
+            </svg>
+            <span id="multiplier" contenteditable="false" tabindex="1" sele>01</span>
+        </div>
+        <div class="getReady deactivated">
+            <span style="position:absolute;top:30%; width:100%; text-align:center">Get get ready</span>
+            <span id="getreadycountdown">
+                
+            </span>
+        </div>
+        <div id="watch">
+            <div class="circleIF" data-id="min" style="">
+                <svg width="200" height="100" style="position:absolute;    transform: translate(-4px, -6px);">
+                <circle data-id="min" id="dragcircle" stroke-linecap="round" r=40 cx="42" cy="42" stroke="white" stroke-width="2" fill="none" style="opacity: 0;"></circle>
+                <rect data-id="min" id="rail" height="0.5" x="49" y="25" width="0" fill="white" stroke="white" stroke-width="2" stroke-linecap="round"></rect>
+                </svg>
+            <span id="min" contenteditable="false" tabindex="2">01</span>
+            </div>
+            <span>:</span>
+            <div class="circleIF" data-id="sec" style="">
+                <svg width="200" height="100" style="position:absolute;    transform: translate(-4px, -6px);">
+                <circle data-id="sec" id="dragcircle" stroke-linecap="round" r=40 cx="42" cy="42" stroke="white" stroke-width="2" fill="none" style="opacity: 0;"></circle>
+                <rect data-id="sec" id="rail" height="0.5" x="49" y="25" width="0" fill="white" stroke="white" stroke-width="2" stroke-linecap="round"></rect>
+                </svg>
+            <span id="sec" contenteditable="false" tabindex="3">00</span>
+            </div>
+        </div>
+        <div id="buttons">
+            <button class="start" id="start"></button>
+        </div>
+    </div>
+    <input id="tabindexloop" style="visibility:hidden; width: 0; height: 0;" tabindex="4"></span>
+    <script src="./registersw.js"></script>
+</body>
+<script src="./utils.js"></script>
+<!-- <script src="./countdown.js"></script> -->
+<script src="./circleinterface.js"></script>
+<script src="./countdownCycle.js"></script>
+
+
+<script>
+
+
+    const log = console.log
+    var eventType = eventType();
+    var dragger = document.querySelector("#dragger");
+    var draggerRail = document.querySelector("#draggerRail");
+    var dragCircle = document.querySelector("#dragCircle");
+    var dot = document.querySelector("#dot");
+
+    
+        var multiplier = new CircleIF({
+            interface: document.querySelector("#wrapper > div.circleIF"), circle: document.querySelector('[data-id=multiplier]#dragcircle'),
+            rail: document.querySelector('[data-id=multiplier]#rail'),
+            jsSelectorNumber: document.querySelector("#multiplier"),
+            unit: "multiplier",
+        });
+        var min = new CircleIF({
+            interface: document.querySelector("#watch > div:nth-child(1)"), circle: document.querySelector('[data-id=min]#dragcircle'),
+            rail: document.querySelector('[data-id=min]#rail'),
+            jsSelectorNumber: document.querySelector("#min"),
+            unit: "min",
+        });
+        var sec = new CircleIF({
+            interface: document.querySelector("#watch > div:nth-child(3)"), circle: document.querySelector('[data-id=sec]#dragcircle'),
+            rail: document.querySelector('[data-id=sec]#rail'),
+            jsSelectorNumber: document.querySelector("#sec"),
+            unit: "sec",
+        });
+
+   
+
+
+</script>
+<script src="./controller.js"></script>
+
+
+</html>

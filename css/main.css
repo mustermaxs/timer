@@ -1,0 +1,201 @@
+body {
+  background-color: darkslategray;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  color: white;
+  transition: background-color 150ms ease-out; }
+
+#wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  justify-content: center;
+  /* z-index: 2; */
+  user-select: none; }
+
+.fadeIn {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: background-color 350ms ease;
+  z-index: 3; }
+
+.circleIF {
+  position: relative;
+  float: left;
+  height: 2rem; }
+
+.circleIF.active {
+  z-index: 100; }
+
+.flash {
+  background-color: rgba(250, 250, 250, 0.8);
+  color: black; }
+
+#watch {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 4rem;
+  display: block;
+  grid-row: 2;
+  /* z-index: 3; */ }
+
+#watch span {
+  float: left; }
+
+#buttons {
+  display: flex;
+  grid-row: 3;
+  flex-direction: column;
+  flex-wrap: nowrap; }
+
+button {
+  padding: 0.5rem 2rem;
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 8px;
+  height: 1.5rem;
+  box-sizing: content-box;
+  outline: none;
+  border: none;
+  margin-bottom: 10px;
+  transition: background-color 300ms ease; }
+
+.start {
+  background-color: #09ae59; }
+
+.resetAnimation {
+  padding: 0;
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 8px;
+  height: 2.3rem;
+  box-sizing: content-box;
+  outline: none;
+  border: none;
+  margin-bottom: 10px;
+  background-color: #6666f9;
+  animation-name: reset;
+  animation-duration: 1000ms;
+  /* animation-delay: ; */ }
+
+.resetAnimation::after {
+  display: block;
+  border-radius: 8px;
+  box-sizing: content-box;
+  border: none;
+  /* margin-bottom: 10px; */
+  position: relative;
+  content: "";
+  height: 2.3rem;
+  /* transition: width 800ms; */
+  width: 0%;
+  box-shadow: 3px 0px 10px rgba(255, 255, 255, 0.66);
+  background-color: rgba(174, 9, 9, 0.8);
+  animation-name: resetProgressBarAnim;
+  animation-duration: 1000ms; }
+
+@keyframes resetProgressBarAnim {
+  to {
+    width: 100%; } }
+@keyframes reset {
+  0% {
+    background-color: #6666f9;
+    box-shadow: 0px 0px 0px white; }
+  50% {
+    box-shadow: 0px 0px 22px white; }
+  100% {
+    box-shadow: 0px 0px 0px white; } }
+.start::after {
+  content: "Go!"; }
+
+.stop {
+  background-color: #ae0909; }
+
+.stop::after {
+  content: "Stop"; }
+
+.pause {
+  background-color: #6666f9;
+  box-shadow: 0px 0px 9px white; }
+
+.pause::after {
+  content: "Pause"; }
+
+button:hover {
+  box-shadow: inset 0px 0px 3px white; }
+
+#multiplier {
+  display: block;
+  font-size: 1.8rem;
+  position: absolute;
+  top: 8px;
+  left: 11px; }
+
+circle {
+  transition: stroke-dasharray 200ms ease; }
+
+.spinner {
+  stroke-dasharray: 56 96;
+  stroke-dashoffset: 149.82470703125;
+  stroke-linecap: round;
+  animation-name: spinner;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  opacity: 1 !important; }
+
+@keyframes spinner {
+  0% {
+    stroke-dashoffset: 149.82470703125;
+    stroke: #6666f9; }
+  75% {
+    stroke: rgba(255, 0, 0, 0.728); }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 154;
+    stroke: #fafafa; } }
+.getReady {
+  font-size: x-large;
+  display: block;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  visibility: visible; }
+
+.getReady span {
+  display: block; }
+
+.deactivated {
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0);
+  visibility: hidden; }
+
+#getreadycountdown {
+  text-align: center;
+  margin-top: 2rem;
+  position: absolute;
+  top: 35%;
+  font-size: 5rem;
+  transition: font-size 500ms ease;
+  text-align: center;
+  width: 100%; }
+
+rect {
+  transition: all 200ms; }
+
+/*# sourceMappingURL=main.css.map */
