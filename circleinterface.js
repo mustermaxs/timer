@@ -93,7 +93,7 @@ class CircleIF {
   }
   mapMousePosition(mousePosX) {
     //
-    const railStartingPointX = 49;
+    const railStartingPointX = 60;
     var mousePosRelToCircle =
       mousePosX - railStartingPointX - this.circleSize.posX;
     switch (true) {

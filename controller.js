@@ -114,6 +114,7 @@ function stopwatch(updateCycle, controller) {
         }
         if (pressedTimeBtn_sec == 0.5) {
           startPauseBtn.className = "resetAnimation";
+
           log("START RESET ANIMATION");
         }
 
@@ -135,7 +136,7 @@ function stopwatch(updateCycle, controller) {
         setTimeout(() => {
           startPauseBtn.className = "start";
           controller.publish("reset");
-          this.spinner.classList.remove("circle");
+          this.spinner.classList.remove("spinner");
           this.isPaused = !this.isPaused;
         }, 500);
       },
@@ -143,7 +144,7 @@ function stopwatch(updateCycle, controller) {
         if (this.isPaused) {
           updateCycle(interface, controller);
           startPauseBtn.className = "pause";
-          this.spinner.classList.add("circle");
+          this.spinner.classList.add("spinner");
           this.spinner.style.opacity = "1";
 
           this.isPaused = !this.isPaused;
@@ -151,7 +152,7 @@ function stopwatch(updateCycle, controller) {
           controller.publish("pause");
           startPauseBtn.className = "start";
           this.isPaused = !this.isPaused;
-          this.spinner.classList.remove("circle");
+          this.spinner.classList.remove("spinner");
         }
       }
     );
